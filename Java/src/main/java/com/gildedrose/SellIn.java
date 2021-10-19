@@ -43,4 +43,9 @@ public class SellIn {
     return Objects.hash(value);
   }
 
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
+
 }
