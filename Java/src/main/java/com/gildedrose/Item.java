@@ -2,73 +2,24 @@ package com.gildedrose;
 
 import java.util.Objects;
 
-public class Item {
+public abstract class Item {
 
   protected static final int MIN_QUALITY = 0;
   protected static final int MAX_QUALITY = 50;
 
-  public final String name;
+  private final String name;
 
-  public int sellIn;
+  protected int sellIn;
 
-  public int quality;
+  protected int quality;
 
-  public Item(final String name, final int sellIn, final int quality) {
+  protected Item(final String name, final int sellIn, final int quality) {
     this.name = name;
     this.sellIn = sellIn;
     this.quality = quality;
   }
 
-  public void updateQuality() {
-    if (!name.equals("Aged Brie")
-        && !name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-      if (quality > 0) {
-        if (!name.equals("Sulfuras, Hand of Ragnaros")) {
-          quality = quality - 1;
-        }
-      }
-    } else {
-      if (quality < 50) {
-        quality = quality + 1;
-
-        if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-          if (sellIn < 11) {
-            if (quality < 50) {
-              quality = quality + 1;
-            }
-          }
-
-          if (sellIn < 6) {
-            if (quality < 50) {
-              quality = quality + 1;
-            }
-          }
-        }
-      }
-    }
-
-    if (!name.equals("Sulfuras, Hand of Ragnaros")) {
-      sellIn = sellIn - 1;
-    }
-
-    if (sellIn < 0) {
-      if (!name.equals("Aged Brie")) {
-        if (!name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-          if (quality > 0) {
-            if (!name.equals("Sulfuras, Hand of Ragnaros")) {
-              quality = quality - 1;
-            }
-          }
-        } else {
-          quality = quality - quality;
-        }
-      } else {
-        if (quality < 50) {
-          quality = quality + 1;
-        }
-      }
-    }
-  }
+  public abstract void updateQuality();
 
   @Override
   public boolean equals(final Object o) {
