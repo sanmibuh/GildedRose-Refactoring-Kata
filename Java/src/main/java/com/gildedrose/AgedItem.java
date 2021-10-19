@@ -8,13 +8,13 @@ public class AgedItem extends Item {
 
   @Override
   public void updateQuality() {
-    sellIn.decrease();
+    decreaseSellIn();
 
     quality.increase();
 
-    if (sellIn.isNegative()) {
+    if (getSellIn().isNegative()) {
       quality.increase();
     }
- 
+
   }
 }

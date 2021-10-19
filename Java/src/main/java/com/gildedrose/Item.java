@@ -6,7 +6,7 @@ public abstract class Item {
 
   private final ItemName name;
 
-  protected final SellIn sellIn;
+  private SellIn sellIn;
 
   protected final Quality quality;
 
@@ -16,7 +16,15 @@ public abstract class Item {
     this.quality = quality;
   }
 
+  protected SellIn getSellIn() {
+    return sellIn;
+  }
+
   public abstract void updateQuality();
+
+  protected void decreaseSellIn() {
+    sellIn = sellIn.decrease();
+  }
 
   @Override
   public boolean equals(final Object o) {

@@ -13,17 +13,17 @@ public class BackstagePassesItem extends Item {
   public void updateQuality() {
     quality.increase();
 
-    if (sellIn.isLessThan(DOUBLED_QUALITY_SELL_IN_INDEX)) {
+    if (getSellIn().isLessThan(DOUBLED_QUALITY_SELL_IN_INDEX)) {
       quality.increase();
     }
 
-    if (sellIn.isLessThan(TRIPLED_QUALITY_SELL_IN_INDEX)) {
+    if (getSellIn().isLessThan(TRIPLED_QUALITY_SELL_IN_INDEX)) {
       quality.increase();
     }
 
-    sellIn.decrease();
+    decreaseSellIn();
 
-    if (sellIn.isNegative()) {
+    if (getSellIn().isNegative()) {
       quality.reset();
     }
   }

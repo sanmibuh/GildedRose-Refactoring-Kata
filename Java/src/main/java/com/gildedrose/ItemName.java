@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public final class ItemName {
 
-  final String value;
+  private final String value;
 
   private ItemName(final String value) {
     this.value = value;

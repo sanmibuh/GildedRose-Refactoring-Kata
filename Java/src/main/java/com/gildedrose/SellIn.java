@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class SellIn {
 
-  private int value;
+  private final int value;
 
   private SellIn(final int value) {
     this.value = value;
@@ -14,8 +14,8 @@ public class SellIn {
     return new SellIn(value);
   }
 
-  public void decrease() {
-    value--;
+  public SellIn decrease() {
+    return new SellIn(value - 1);
   }
 
   public boolean isNegative() {

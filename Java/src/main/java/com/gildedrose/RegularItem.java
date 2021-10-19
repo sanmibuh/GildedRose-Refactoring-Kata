@@ -8,14 +8,14 @@ public class RegularItem extends Item {
 
   @Override
   public void updateQuality() {
-    sellIn.decrease();
+    decreaseSellIn();
     decreaseQuality();
   }
 
   protected void decreaseQuality() {
     quality.decrease();
 
-    if (sellIn.isNegative()) {
+    if (getSellIn().isNegative()) {
       quality.decrease();
     }
 
