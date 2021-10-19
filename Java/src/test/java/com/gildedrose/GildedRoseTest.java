@@ -10,28 +10,28 @@ class GildedRoseTest {
 
   @Test
   void should_decrease_the_quality_and_sellin() {
-    final Item[] items = new Item[]{new Item("foo", 10, 5)};
+    final Item[] items = new Item[]{new RegularItem("foo", 10, 5)};
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
-    final Item expected = new Item("foo", 9, 4);
+    final Item expected = new RegularItem("foo", 9, 4);
     assertEquals(expected, app.getItems()[0]);
   }
 
   @Test
   void should_decrease_the_quality_twice_fast_when_negative_sellin() {
-    final Item[] items = new Item[]{new Item("foo", -1, 6)};
+    final Item[] items = new Item[]{new RegularItem("foo", -1, 6)};
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
-    final Item expected = new Item("foo", -2, 4);
+    final Item expected = new RegularItem("foo", -2, 4);
     assertEquals(expected, app.getItems()[0]);
   }
 
   @Test
   void should_not_decrease_the_quality_if_is_zero() {
-    final Item[] items = new Item[]{new Item("foo", 0, 0)};
+    final Item[] items = new Item[]{new RegularItem("foo", 0, 0)};
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
-    final Item expected = new Item("foo", -1, 0);
+    final Item expected = new RegularItem("foo", -1, 0);
     assertEquals(expected, app.getItems()[0]);
   }
 
