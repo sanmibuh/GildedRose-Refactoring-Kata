@@ -11,16 +11,14 @@ public class BackstagePassesItem extends Item {
 
   @Override
   public void updateQuality() {
-    if (quality.compareTo(MAX_QUALITY) < 0) {
+    quality.increase();
+
+    if (sellIn.isLessThan(DOUBLED_QUALITY_SELL_IN_INDEX)) {
       quality.increase();
+    }
 
-      if (sellIn.isLessThan(DOUBLED_QUALITY_SELL_IN_INDEX) && quality.compareTo(MAX_QUALITY) < 0) {
-        quality.increase();
-      }
-
-      if (sellIn.isLessThan(TRIPLED_QUALITY_SELL_IN_INDEX) && quality.compareTo(MAX_QUALITY) < 0) {
-        quality.increase();
-      }
+    if (sellIn.isLessThan(TRIPLED_QUALITY_SELL_IN_INDEX)) {
+      quality.increase();
     }
 
     sellIn.decrease();

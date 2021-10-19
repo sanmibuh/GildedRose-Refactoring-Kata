@@ -13,13 +13,12 @@ public class RegularItem extends Item {
   }
 
   protected void decreaseQuality() {
-    if (quality.compareTo(MIN_QUALITY) > 0) {
-      quality.decrease();
+    quality.decrease();
 
-      if (sellIn.isNegative() && quality.compareTo(MIN_QUALITY) > 0) {
-        quality.decrease();
-      }
+    if (sellIn.isNegative()) {
+      quality.decrease();
     }
+
   }
 
 }

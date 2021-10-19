@@ -4,9 +4,6 @@ import java.util.Objects;
 
 public abstract class Item {
 
-  protected static final int MIN_QUALITY = 0;
-  protected static final int MAX_QUALITY = 50;
-
   private final ItemName name;
 
   protected final SellIn sellIn;

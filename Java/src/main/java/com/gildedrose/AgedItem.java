@@ -10,12 +10,11 @@ public class AgedItem extends Item {
   public void updateQuality() {
     sellIn.decrease();
 
-    if (quality.compareTo(MAX_QUALITY) < 0) {
-      quality.increase();
+    quality.increase();
 
-      if (sellIn.isNegative() && quality.compareTo(MAX_QUALITY) < 0) {
-        quality.increase();
-      }
+    if (sellIn.isNegative()) {
+      quality.increase();
     }
+ 
   }
 }

@@ -2,9 +2,10 @@ package com.gildedrose;
 
 import java.util.Objects;
 
-public class Quality implements Comparable<Integer> {
+public class Quality {
 
   private static final int MIN_QUALITY = 0;
+  private static final int MAX_QUALITY = 50;
 
   private int value;
 
@@ -17,19 +18,22 @@ public class Quality implements Comparable<Integer> {
   }
 
   public void increase() {
-    value++;
+    if (compareTo(MAX_QUALITY) < 0) {
+      value++;
+    }
   }
 
   public void decrease() {
-    value--;
+    if (compareTo(MIN_QUALITY) > 0) {
+      value--;
+    }
   }
 
   public void reset() {
     value = 0;
   }
-
-  @Override
-  public int compareTo(final Integer o) {
+  
+  private int compareTo(final int o) {
     return Integer.compare(value, o);
   }
 
