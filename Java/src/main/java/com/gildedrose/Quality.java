@@ -18,23 +18,19 @@ public class Quality {
   }
 
   public void increase() {
-    if (compareTo(MAX_QUALITY) < 0) {
+    if (value < MAX_QUALITY) {
       value++;
     }
   }
 
   public void decrease() {
-    if (compareTo(MIN_QUALITY) > 0) {
+    if (value > MIN_QUALITY) {
       value--;
     }
   }
 
   public void reset() {
     value = 0;
-  }
-  
-  private int compareTo(final int o) {
-    return Integer.compare(value, o);
   }
 
   @Override
