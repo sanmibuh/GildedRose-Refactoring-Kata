@@ -22,6 +22,10 @@ public class SellIn implements Comparable<Integer> {
     return value < 0;
   }
 
+  public boolean isLessThan(final int o) {
+    return compareTo(o) < 0;
+  }
+
   @Override
   public int compareTo(final Integer o) {
     return Integer.compare(value, o);
