@@ -2,7 +2,7 @@ package com.gildedrose;
 
 import java.util.Objects;
 
-public class SellIn implements Comparable<Integer> {
+public class SellIn {
 
   private int value;
 
@@ -23,12 +23,7 @@ public class SellIn implements Comparable<Integer> {
   }
 
   public boolean isLessThan(final int o) {
-    return compareTo(o) < 0;
-  }
-
-  @Override
-  public int compareTo(final Integer o) {
-    return Integer.compare(value, o);
+    return value < o;
   }
 
   @Override
