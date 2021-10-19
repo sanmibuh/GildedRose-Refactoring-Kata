@@ -64,39 +64,39 @@ class GildedRoseTest {
 
   @Test
   void should_backstages_increases_quality_with_selling_more_than_ten() {
-    final Item[] items = new Item[]{new Item("Backstage passes to a TAFKAL80ETC concert", 11, 5)};
+    final Item[] items = new Item[]{new BackstagePassesItem("Backstage passes to a TAFKAL80ETC concert", 11, 5)};
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
-    final Item expected = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 6);
+    final Item expected = new BackstagePassesItem("Backstage passes to a TAFKAL80ETC concert", 10, 6);
     assertEquals(expected, app.getItems()[0]);
   }
 
   @ParameterizedTest
   @ValueSource(ints = {10, 9, 8, 7, 6})
   void should_backstages_increases_by_two_quality_with_selling_between_ten_and_six(final int sellin) {
-    final Item[] items = new Item[]{new Item("Backstage passes to a TAFKAL80ETC concert", sellin, 5)};
+    final Item[] items = new Item[]{new BackstagePassesItem("Backstage passes to a TAFKAL80ETC concert", sellin, 5)};
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
-    final Item expected = new Item("Backstage passes to a TAFKAL80ETC concert", sellin - 1, 7);
+    final Item expected = new BackstagePassesItem("Backstage passes to a TAFKAL80ETC concert", sellin - 1, 7);
     assertEquals(expected, app.getItems()[0]);
   }
 
   @ParameterizedTest
   @ValueSource(ints = {5, 4, 3, 2, 1})
   void should_backstages_increases_by_three_quality_with_selling_less_than_five(final int sellin) {
-    final Item[] items = new Item[]{new Item("Backstage passes to a TAFKAL80ETC concert", sellin, 5)};
+    final Item[] items = new Item[]{new BackstagePassesItem("Backstage passes to a TAFKAL80ETC concert", sellin, 5)};
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
-    final Item expected = new Item("Backstage passes to a TAFKAL80ETC concert", sellin - 1, 8);
+    final Item expected = new BackstagePassesItem("Backstage passes to a TAFKAL80ETC concert", sellin - 1, 8);
     assertEquals(expected, app.getItems()[0]);
   }
 
   @Test
   void should_backstages_drop_quality_to_zero_with_selling_zero() {
-    final Item[] items = new Item[]{new Item("Backstage passes to a TAFKAL80ETC concert", 0, 5)};
+    final Item[] items = new Item[]{new BackstagePassesItem("Backstage passes to a TAFKAL80ETC concert", 0, 5)};
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
-    final Item expected = new Item("Backstage passes to a TAFKAL80ETC concert", -1, 0);
+    final Item expected = new BackstagePassesItem("Backstage passes to a TAFKAL80ETC concert", -1, 0);
     assertEquals(expected, app.getItems()[0]);
   }
 
