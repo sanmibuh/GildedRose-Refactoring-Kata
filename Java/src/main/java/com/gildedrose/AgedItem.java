@@ -2,7 +2,7 @@ package com.gildedrose;
 
 public class AgedItem extends Item {
 
-  public AgedItem(final ItemName name, final SellIn sellIn, final int quality) {
+  public AgedItem(final ItemName name, final SellIn sellIn, final Quality quality) {
     super(name, sellIn, quality);
   }
 
@@ -10,11 +10,11 @@ public class AgedItem extends Item {
   public void updateQuality() {
     sellIn.decrease();
 
-    if (quality < MAX_QUALITY) {
-      quality++;
+    if (quality.compareTo(MAX_QUALITY) < 0) {
+      quality.increase();
 
-      if (sellIn.isNegative() && quality < MAX_QUALITY) {
-        quality++;
+      if (sellIn.isNegative() && quality.compareTo(MAX_QUALITY) < 0) {
+        quality.increase();
       }
     }
   }

@@ -11,60 +11,60 @@ class GildedRoseTest {
   @Test
   void should_decrease_the_quality_and_sellin() {
     final ItemName itemName = ItemName.of("foo");
-    final Item[] items = new Item[]{new RegularItem(itemName, SellIn.of(10), 5)};
+    final Item[] items = new Item[]{new RegularItem(itemName, SellIn.of(10), Quality.of(5))};
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
-    final Item expected = new RegularItem(itemName, SellIn.of(9), 4);
+    final Item expected = new RegularItem(itemName, SellIn.of(9), Quality.of(4));
     assertEquals(expected, app.getItems()[0]);
   }
 
   @Test
   void should_decrease_the_quality_twice_fast_when_negative_sellin() {
     final ItemName itemName = ItemName.of("foo");
-    final Item[] items = new Item[]{new RegularItem(itemName, SellIn.of(-1), 6)};
+    final Item[] items = new Item[]{new RegularItem(itemName, SellIn.of(-1), Quality.of(6))};
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
-    final Item expected = new RegularItem(itemName, SellIn.of(-2), 4);
+    final Item expected = new RegularItem(itemName, SellIn.of(-2), Quality.of(4));
     assertEquals(expected, app.getItems()[0]);
   }
 
   @Test
   void should_not_decrease_the_quality_if_is_zero() {
     final ItemName itemName = ItemName.of("foo");
-    final Item[] items = new Item[]{new RegularItem(itemName, SellIn.of(0), 0)};
+    final Item[] items = new Item[]{new RegularItem(itemName, SellIn.of(0), Quality.of(0))};
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
-    final Item expected = new RegularItem(itemName, SellIn.of(-1), 0);
+    final Item expected = new RegularItem(itemName, SellIn.of(-1), Quality.of(0));
     assertEquals(expected, app.getItems()[0]);
   }
 
   @Test
   void should_increase_the_quality_with_aged_brie_item() {
     final ItemName itemName = ItemName.of("Aged Brie");
-    final Item[] items = new Item[]{new AgedItem(itemName, SellIn.of(10), 5)};
+    final Item[] items = new Item[]{new AgedItem(itemName, SellIn.of(10), Quality.of(5))};
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
-    final Item expected = new AgedItem(itemName, SellIn.of(9), 6);
+    final Item expected = new AgedItem(itemName, SellIn.of(9), Quality.of(6));
     assertEquals(expected, app.getItems()[0]);
   }
 
   @Test
   void should_not_increase_the_quality_if_is_fifty() {
     final ItemName itemName = ItemName.of("Aged Brie");
-    final Item[] items = new Item[]{new AgedItem(itemName, SellIn.of(10), 50)};
+    final Item[] items = new Item[]{new AgedItem(itemName, SellIn.of(10), Quality.of(50))};
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
-    final Item expected = new AgedItem(itemName, SellIn.of(9), 50);
+    final Item expected = new AgedItem(itemName, SellIn.of(9), Quality.of(50));
     assertEquals(expected, app.getItems()[0]);
   }
 
   @Test
   void should_sulfuras_item_never_decreases_quality_nor_sellin() {
     final ItemName itemName = ItemName.of("Sulfuras, Hand of Ragnaros");
-    final Item[] items = new Item[]{new LegendaryItem(itemName, SellIn.of(10), 5)};
+    final Item[] items = new Item[]{new LegendaryItem(itemName, SellIn.of(10), Quality.of(5))};
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
-    final Item expected = new LegendaryItem(itemName, SellIn.of(10), 5);
+    final Item expected = new LegendaryItem(itemName, SellIn.of(10), Quality.of(5));
     assertEquals(expected, app.getItems()[0]);
   }
 
@@ -72,10 +72,10 @@ class GildedRoseTest {
   void should_backstages_increases_quality_with_selling_more_than_ten() {
     final ItemName itemName = ItemName.of("Backstage passes to a TAFKAL80ETC concert");
     final Item[] items = new Item[]{
-        new BackstagePassesItem(itemName, SellIn.of(11), 5)};
+        new BackstagePassesItem(itemName, SellIn.of(11), Quality.of(5))};
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
-    final Item expected = new BackstagePassesItem(itemName, SellIn.of(10), 6);
+    final Item expected = new BackstagePassesItem(itemName, SellIn.of(10), Quality.of(6));
     assertEquals(expected, app.getItems()[0]);
   }
 
@@ -84,11 +84,10 @@ class GildedRoseTest {
   void should_backstages_increases_by_two_quality_with_selling_between_ten_and_six(final int sellin) {
     final ItemName itemName = ItemName.of("Backstage passes to a TAFKAL80ETC concert");
     final Item[] items = new Item[]{
-        new BackstagePassesItem(itemName, SellIn.of(sellin), 5)};
+        new BackstagePassesItem(itemName, SellIn.of(sellin), Quality.of(5))};
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
-    final Item expected = new BackstagePassesItem(itemName, SellIn.of(sellin - 1),
-        7);
+    final Item expected = new BackstagePassesItem(itemName, SellIn.of(sellin - 1), Quality.of(7));
     assertEquals(expected, app.getItems()[0]);
   }
 
@@ -97,11 +96,10 @@ class GildedRoseTest {
   void should_backstages_increases_by_three_quality_with_selling_less_than_five(final int sellin) {
     final ItemName itemName = ItemName.of("Backstage passes to a TAFKAL80ETC concert");
     final Item[] items = new Item[]{
-        new BackstagePassesItem(itemName, SellIn.of(sellin), 5)};
+        new BackstagePassesItem(itemName, SellIn.of(sellin), Quality.of(5))};
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
-    final Item expected = new BackstagePassesItem(itemName, SellIn.of(sellin - 1),
-        8);
+    final Item expected = new BackstagePassesItem(itemName, SellIn.of(sellin - 1), Quality.of(8));
     assertEquals(expected, app.getItems()[0]);
   }
 
@@ -109,30 +107,30 @@ class GildedRoseTest {
   void should_backstages_drop_quality_to_zero_with_selling_zero() {
     final ItemName itemName = ItemName.of("Backstage passes to a TAFKAL80ETC concert");
     final Item[] items = new Item[]{
-        new BackstagePassesItem(itemName, SellIn.of(0), 5)};
+        new BackstagePassesItem(itemName, SellIn.of(0), Quality.of(5))};
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
-    final Item expected = new BackstagePassesItem(itemName, SellIn.of(-1), 0);
+    final Item expected = new BackstagePassesItem(itemName, SellIn.of(-1), Quality.of(0));
     assertEquals(expected, app.getItems()[0]);
   }
 
   @Test
   void should_conjured_items_decrease_the_quality_twice_fast_as_regular() {
     final ItemName itemName = ItemName.of("Conjured");
-    final Item[] items = new Item[]{new ConjuredItem(itemName, SellIn.of(10), 5)};
+    final Item[] items = new Item[]{new ConjuredItem(itemName, SellIn.of(10), Quality.of(5))};
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
-    final Item expected = new ConjuredItem(itemName, SellIn.of(9), 3);
+    final Item expected = new ConjuredItem(itemName, SellIn.of(9), Quality.of(3));
     assertEquals(expected, app.getItems()[0]);
   }
 
   @Test
   void should_conjured_items_decrease_the_quality_twice_fast_when_negative_sellin_as_regular() {
     final ItemName itemName = ItemName.of("Conjured");
-    final Item[] items = new Item[]{new ConjuredItem(itemName, SellIn.of(-1), 6)};
+    final Item[] items = new Item[]{new ConjuredItem(itemName, SellIn.of(-1), Quality.of(6))};
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
-    final Item expected = new ConjuredItem(itemName, SellIn.of(-2), 2);
+    final Item expected = new ConjuredItem(itemName, SellIn.of(-2), Quality.of(2));
     assertEquals(expected, app.getItems()[0]);
   }
 

@@ -2,7 +2,7 @@ package com.gildedrose;
 
 public class LegendaryItem extends Item {
 
-  public LegendaryItem(final ItemName name, final SellIn sellIn, final int quality) {
+  public LegendaryItem(final ItemName name, final SellIn sellIn, final Quality quality) {
     super(name, sellIn, quality);
   }
 
