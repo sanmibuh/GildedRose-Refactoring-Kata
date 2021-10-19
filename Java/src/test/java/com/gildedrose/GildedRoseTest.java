@@ -55,10 +55,10 @@ class GildedRoseTest {
 
   @Test
   void should_sulfuras_item_never_decreases_quality_nor_sellin() {
-    final Item[] items = new Item[]{new Item("Sulfuras, Hand of Ragnaros", 10, 5)};
+    final Item[] items = new Item[]{new LegendaryItem("Sulfuras, Hand of Ragnaros", 10, 5)};
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
-    final Item expected = new Item("Sulfuras, Hand of Ragnaros", 10, 5);
+    final Item expected = new LegendaryItem("Sulfuras, Hand of Ragnaros", 10, 5);
     assertEquals(expected, app.getItems()[0]);
   }
 
@@ -99,5 +99,5 @@ class GildedRoseTest {
     final Item expected = new Item("Backstage passes to a TAFKAL80ETC concert", -1, 0);
     assertEquals(expected, app.getItems()[0]);
   }
-  
+
 }
