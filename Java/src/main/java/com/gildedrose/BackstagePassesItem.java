@@ -5,7 +5,7 @@ public class BackstagePassesItem extends Item {
   private static final int DOUBLED_QUALITY_SELL_IN_INDEX = 11;
   private static final int TRIPLED_QUALITY_SELL_IN_INDEX = 6;
 
-  public BackstagePassesItem(final ItemName name, final int sellIn, final int quality) {
+  public BackstagePassesItem(final ItemName name, final SellIn sellIn, final int quality) {
     super(name, sellIn, quality);
   }
 
@@ -14,18 +14,18 @@ public class BackstagePassesItem extends Item {
     if (quality < MAX_QUALITY) {
       quality++;
 
-      if (sellIn < DOUBLED_QUALITY_SELL_IN_INDEX && quality < MAX_QUALITY) {
+      if (sellIn.getValue() < DOUBLED_QUALITY_SELL_IN_INDEX && quality < MAX_QUALITY) {
         quality++;
       }
 
-      if (sellIn < TRIPLED_QUALITY_SELL_IN_INDEX && quality < MAX_QUALITY) {
+      if (sellIn.getValue() < TRIPLED_QUALITY_SELL_IN_INDEX && quality < MAX_QUALITY) {
         quality++;
       }
     }
 
-    sellIn--;
+    sellIn.decrease();
 
-    if (sellIn < 0) {
+    if (sellIn.isNegative()) {
       quality = MIN_QUALITY;
     }
   }

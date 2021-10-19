@@ -2,13 +2,13 @@ package com.gildedrose;
 
 public class RegularItem extends Item {
 
-  public RegularItem(final ItemName name, final int sellIn, final int quality) {
+  public RegularItem(final ItemName name, final SellIn sellIn, final int quality) {
     super(name, sellIn, quality);
   }
 
   @Override
   public void updateQuality() {
-    sellIn--;
+    sellIn.decrease();
     decreaseQuality();
   }
 
@@ -16,7 +16,7 @@ public class RegularItem extends Item {
     if (quality > MIN_QUALITY) {
       quality--;
 
-      if (sellIn < 0 && quality > MIN_QUALITY) {
+      if (sellIn.isNegative() && quality > MIN_QUALITY) {
         quality--;
       }
     }

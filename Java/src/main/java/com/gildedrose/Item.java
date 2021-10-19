@@ -9,11 +9,11 @@ public abstract class Item {
 
   private final ItemName name;
 
-  protected int sellIn;
+  protected final SellIn sellIn;
 
   protected int quality;
 
-  protected Item(final ItemName name, final int sellIn, final int quality) {
+  protected Item(final ItemName name, final SellIn sellIn, final int quality) {
     this.name = name;
     this.sellIn = sellIn;
     this.quality = quality;
@@ -30,7 +30,8 @@ public abstract class Item {
       return false;
     }
     final Item item = (Item) o;
-    return sellIn == item.sellIn && quality == item.quality && name.equals(item.name);
+    return quality == item.quality && Objects.equals(name, item.name) && Objects.equals(sellIn,
+        item.sellIn);
   }
 
   @Override
