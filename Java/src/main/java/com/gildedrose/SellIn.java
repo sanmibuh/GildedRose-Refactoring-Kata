@@ -2,7 +2,7 @@ package com.gildedrose;
 
 import java.util.Objects;
 
-public class SellIn {
+public class SellIn implements Comparable<Integer> {
 
   private int value;
 
@@ -14,16 +14,17 @@ public class SellIn {
     return new SellIn(value);
   }
 
-  public int getValue() {
-    return value;
-  }
-
   public void decrease() {
     value--;
   }
 
   public boolean isNegative() {
     return value < 0;
+  }
+
+  @Override
+  public int compareTo(final Integer o) {
+    return Integer.compare(value, o);
   }
 
   @Override
@@ -42,4 +43,5 @@ public class SellIn {
   public int hashCode() {
     return Objects.hash(value);
   }
+
 }

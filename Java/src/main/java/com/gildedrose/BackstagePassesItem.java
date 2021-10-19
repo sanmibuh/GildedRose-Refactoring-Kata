@@ -14,11 +14,11 @@ public class BackstagePassesItem extends Item {
     if (quality < MAX_QUALITY) {
       quality++;
 
-      if (sellIn.getValue() < DOUBLED_QUALITY_SELL_IN_INDEX && quality < MAX_QUALITY) {
+      if (sellIn.compareTo(DOUBLED_QUALITY_SELL_IN_INDEX) < 0 && quality < MAX_QUALITY) {
         quality++;
       }
 
-      if (sellIn.getValue() < TRIPLED_QUALITY_SELL_IN_INDEX && quality < MAX_QUALITY) {
+      if (sellIn.compareTo(TRIPLED_QUALITY_SELL_IN_INDEX) < 0 && quality < MAX_QUALITY) {
         quality++;
       }
     }
