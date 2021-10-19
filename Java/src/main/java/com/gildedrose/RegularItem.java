@@ -9,7 +9,10 @@ public class RegularItem extends Item {
   @Override
   public void updateQuality() {
     sellIn--;
+    decreaseQuality();
+  }
 
+  protected void decreaseQuality() {
     if (quality > MIN_QUALITY) {
       quality--;
 
@@ -18,4 +21,5 @@ public class RegularItem extends Item {
       }
     }
   }
+
 }

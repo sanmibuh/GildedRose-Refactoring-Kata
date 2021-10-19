@@ -14,8 +14,7 @@ public final class TexttestFixture {
         new BackstagePassesItem("Backstage passes to a TAFKAL80ETC concert", 15, 20),
         new BackstagePassesItem("Backstage passes to a TAFKAL80ETC concert", 10, 49),
         new BackstagePassesItem("Backstage passes to a TAFKAL80ETC concert", 5, 49),
-        // this conjured item does not work properly yet
-        new RegularItem("Conjured Mana Cake", 3, 6)};
+        new ConjuredItem("Conjured Mana Cake", 3, 6)};
 
     final GildedRose app = new GildedRose(items);
 

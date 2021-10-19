@@ -100,4 +100,22 @@ class GildedRoseTest {
     assertEquals(expected, app.getItems()[0]);
   }
 
+  @Test
+  void should_conjured_items_decrease_the_quality_twice_fast_as_regular() {
+    final Item[] items = new Item[]{new ConjuredItem("Conjured", 10, 5)};
+    final GildedRose app = new GildedRose(items);
+    app.updateQuality();
+    final Item expected = new ConjuredItem("Conjured", 9, 3);
+    assertEquals(expected, app.getItems()[0]);
+  }
+
+  @Test
+  void should_conjured_items_decrease_the_quality_twice_fast_when_negative_sellin_as_regular() {
+    final Item[] items = new Item[]{new ConjuredItem("Conjured", -1, 6)};
+    final GildedRose app = new GildedRose(items);
+    app.updateQuality();
+    final Item expected = new ConjuredItem("Conjured", -2, 2);
+    assertEquals(expected, app.getItems()[0]);
+  }
+
 }
