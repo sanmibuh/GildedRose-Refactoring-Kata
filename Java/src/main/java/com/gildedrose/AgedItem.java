@@ -8,15 +8,13 @@ public class AgedItem extends Item {
 
   @Override
   public void updateQuality() {
+    sellIn--;
+
     if (quality < 50) {
-      quality = quality + 1;
-    }
+      quality++;
 
-    sellIn = sellIn - 1;
-
-    if (sellIn < 0) {
-      if (quality < 50) {
-        quality = quality + 1;
+      if (sellIn < 0 && quality < 50) {
+        quality++;
       }
     }
   }
