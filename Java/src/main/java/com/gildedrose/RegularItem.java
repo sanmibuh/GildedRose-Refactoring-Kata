@@ -2,7 +2,7 @@ package com.gildedrose;
 
 public class RegularItem extends Item {
 
-  public RegularItem(final String name, final int sellIn, final int quality) {
+  public RegularItem(final ItemName name, final int sellIn, final int quality) {
     super(name, sellIn, quality);
   }
 

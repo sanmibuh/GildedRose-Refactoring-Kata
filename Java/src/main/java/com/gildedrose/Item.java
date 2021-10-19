@@ -7,13 +7,13 @@ public abstract class Item {
   protected static final int MIN_QUALITY = 0;
   protected static final int MAX_QUALITY = 50;
 
-  private final String name;
+  private final ItemName name;
 
   protected int sellIn;
 
   protected int quality;
 
-  protected Item(final String name, final int sellIn, final int quality) {
+  protected Item(final ItemName name, final int sellIn, final int quality) {
     this.name = name;
     this.sellIn = sellIn;
     this.quality = quality;

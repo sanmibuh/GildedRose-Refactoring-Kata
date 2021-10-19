@@ -2,7 +2,7 @@ package com.gildedrose;
 
 public class AgedItem extends Item {
 
-  public AgedItem(final String name, final int sellIn, final int quality) {
+  public AgedItem(final ItemName name, final int sellIn, final int quality) {
     super(name, sellIn, quality);
   }
 
