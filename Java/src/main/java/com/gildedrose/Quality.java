@@ -7,7 +7,9 @@ public class Quality {
   private static final int MIN_QUALITY = 0;
   private static final int MAX_QUALITY = 50;
 
-  private int value;
+  private static final Quality EMPTY_QUALITY = new Quality(MIN_QUALITY);
+
+  private final int value;
 
   private Quality(final int value) {
     this.value = value;
@@ -17,20 +19,22 @@ public class Quality {
     return new Quality(value);
   }
 
-  public void increase() {
+  public static Quality empty() {
+    return EMPTY_QUALITY;
+  }
+
+  public Quality increase() {
     if (value < MAX_QUALITY) {
-      value++;
+      return new Quality(value + 1);
     }
+    return this;
   }
 
-  public void decrease() {
+  public Quality decrease() {
     if (value > MIN_QUALITY) {
-      value--;
+      return new Quality(value - 1);
     }
-  }
-
-  public void reset() {
-    value = 0;
+    return this;
   }
 
   @Override

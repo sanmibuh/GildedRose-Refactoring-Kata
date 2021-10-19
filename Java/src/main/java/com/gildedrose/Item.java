@@ -8,7 +8,7 @@ public abstract class Item {
 
   private SellIn sellIn;
 
-  protected final Quality quality;
+  private Quality quality;
 
   protected Item(final ItemName name, final SellIn sellIn, final Quality quality) {
     this.name = name;
@@ -24,6 +24,18 @@ public abstract class Item {
 
   protected void decreaseSellIn() {
     sellIn = sellIn.decrease();
+  }
+
+  protected void increaseQuality() {
+    quality = quality.increase();
+  }
+
+  protected void decreaseQuality() {
+    quality = quality.decrease();
+  }
+
+  protected void resetQuality() {
+    quality = Quality.empty();
   }
 
   @Override

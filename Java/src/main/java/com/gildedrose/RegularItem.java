@@ -12,13 +12,12 @@ public class RegularItem extends Item {
     decreaseQuality();
   }
 
+  @Override
   protected void decreaseQuality() {
-    quality.decrease();
-
+    super.decreaseQuality();
     if (getSellIn().isNegative()) {
-      quality.decrease();
+      super.decreaseQuality();
     }
-
   }
 
 }
