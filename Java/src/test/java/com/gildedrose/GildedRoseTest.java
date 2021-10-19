@@ -37,19 +37,19 @@ class GildedRoseTest {
 
   @Test
   void should_increase_the_quality_with_aged_brie_item() {
-    final Item[] items = new Item[]{new Item("Aged Brie", 10, 5)};
+    final Item[] items = new Item[]{new AgedItem("Aged Brie", 10, 5)};
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
-    final Item expected = new Item("Aged Brie", 9, 6);
+    final Item expected = new AgedItem("Aged Brie", 9, 6);
     assertEquals(expected, app.getItems()[0]);
   }
 
   @Test
   void should_not_increase_the_quality_if_is_fifty() {
-    final Item[] items = new Item[]{new Item("Aged Brie", 10, 50)};
+    final Item[] items = new Item[]{new AgedItem("Aged Brie", 10, 50)};
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
-    final Item expected = new Item("Aged Brie", 9, 50);
+    final Item expected = new AgedItem("Aged Brie", 9, 50);
     assertEquals(expected, app.getItems()[0]);
   }
 
@@ -99,6 +99,5 @@ class GildedRoseTest {
     final Item expected = new Item("Backstage passes to a TAFKAL80ETC concert", -1, 0);
     assertEquals(expected, app.getItems()[0]);
   }
-
-
+  
 }
