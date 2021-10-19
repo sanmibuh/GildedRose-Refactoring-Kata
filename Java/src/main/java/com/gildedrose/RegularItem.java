@@ -2,8 +2,6 @@ package com.gildedrose;
 
 public class RegularItem extends Item {
 
-  public static final int MIN_QUALITY = 0;
-
   public RegularItem(final String name, final int sellIn, final int quality) {
     super(name, sellIn, quality);
   }

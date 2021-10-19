@@ -2,32 +2,31 @@ package com.gildedrose;
 
 public class BackstagePassesItem extends Item {
 
+  private static final int DOUBLED_QUALITY_SELL_IN_INDEX = 11;
+  private static final int TRIPLED_QUALITY_SELL_IN_INDEX = 6;
+
   public BackstagePassesItem(final String name, final int sellIn, final int quality) {
     super(name, sellIn, quality);
   }
 
   @Override
   public void updateQuality() {
-    if (quality < 50) {
-      quality = quality + 1;
+    if (quality < MAX_QUALITY) {
+      quality++;
 
-      if (sellIn < 11) {
-        if (quality < 50) {
-          quality = quality + 1;
-        }
+      if (sellIn < DOUBLED_QUALITY_SELL_IN_INDEX && quality < MAX_QUALITY) {
+        quality++;
       }
 
-      if (sellIn < 6) {
-        if (quality < 50) {
-          quality = quality + 1;
-        }
+      if (sellIn < TRIPLED_QUALITY_SELL_IN_INDEX && quality < MAX_QUALITY) {
+        quality++;
       }
     }
 
-    sellIn = sellIn - 1;
+    sellIn--;
 
     if (sellIn < 0) {
-      quality = quality - quality;
+      quality = MIN_QUALITY;
     }
   }
 }
