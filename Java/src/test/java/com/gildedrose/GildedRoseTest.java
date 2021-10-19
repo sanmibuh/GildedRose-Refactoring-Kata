@@ -14,7 +14,7 @@ class GildedRoseTest {
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
     final Item expected = new Item("foo", 9, 4);
-    assertEquals(expected, app.items[0]);
+    assertEquals(expected, app.getItems()[0]);
   }
 
   @Test
@@ -23,7 +23,7 @@ class GildedRoseTest {
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
     final Item expected = new Item("foo", -2, 4);
-    assertEquals(expected, app.items[0]);
+    assertEquals(expected, app.getItems()[0]);
   }
 
   @Test
@@ -32,7 +32,7 @@ class GildedRoseTest {
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
     final Item expected = new Item("foo", -1, 0);
-    assertEquals(expected, app.items[0]);
+    assertEquals(expected, app.getItems()[0]);
   }
 
   @Test
@@ -41,7 +41,7 @@ class GildedRoseTest {
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
     final Item expected = new Item("Aged Brie", 9, 6);
-    assertEquals(expected, app.items[0]);
+    assertEquals(expected, app.getItems()[0]);
   }
 
   @Test
@@ -50,7 +50,7 @@ class GildedRoseTest {
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
     final Item expected = new Item("Aged Brie", 9, 50);
-    assertEquals(expected, app.items[0]);
+    assertEquals(expected, app.getItems()[0]);
   }
 
   @Test
@@ -59,7 +59,7 @@ class GildedRoseTest {
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
     final Item expected = new Item("Sulfuras, Hand of Ragnaros", 10, 5);
-    assertEquals(expected, app.items[0]);
+    assertEquals(expected, app.getItems()[0]);
   }
 
   @Test
@@ -68,7 +68,7 @@ class GildedRoseTest {
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
     final Item expected = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 6);
-    assertEquals(expected, app.items[0]);
+    assertEquals(expected, app.getItems()[0]);
   }
 
   @ParameterizedTest
@@ -78,7 +78,7 @@ class GildedRoseTest {
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
     final Item expected = new Item("Backstage passes to a TAFKAL80ETC concert", sellin - 1, 7);
-    assertEquals(expected, app.items[0]);
+    assertEquals(expected, app.getItems()[0]);
   }
 
   @ParameterizedTest
@@ -88,7 +88,7 @@ class GildedRoseTest {
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
     final Item expected = new Item("Backstage passes to a TAFKAL80ETC concert", sellin - 1, 8);
-    assertEquals(expected, app.items[0]);
+    assertEquals(expected, app.getItems()[0]);
   }
 
   @Test
@@ -97,7 +97,7 @@ class GildedRoseTest {
     final GildedRose app = new GildedRose(items);
     app.updateQuality();
     final Item expected = new Item("Backstage passes to a TAFKAL80ETC concert", -1, 0);
-    assertEquals(expected, app.items[0]);
+    assertEquals(expected, app.getItems()[0]);
   }
 
 
